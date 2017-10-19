@@ -81,6 +81,7 @@ def dump(db, f, **options):
                 })
             exportArray.append({"name": frame.name,
                                 "id": int(frame.id),
+                                "dlc": int(frame.size),
                                 "is_extended_frame": frame.extended == 1,
                                 "signals": signals})
     else:  # exportall
@@ -116,6 +117,7 @@ def dump(db, f, **options):
             exportArray.append(
                 {"name": frame.name,
                  "id": int(frame.id),
+                 "dlc": int(frame.Size),
                  "is_extended_frame": frame.extended == 1,
                  "signals": signals,
                  "attributes": frameattribs,
