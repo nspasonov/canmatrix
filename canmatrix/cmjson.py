@@ -77,7 +77,10 @@ def dump(db, f, **options):
                     "offset": float(signal.offset),
                     "is_big_endian": signal.is_little_endian == 0,
                     "is_signed": signal.is_signed,
-                    "is_float": signal.is_float
+                    "is_float": signal.is_float,
+                    "values": signal.values,
+                    "comment": signal.comment,
+                    "attributes": signal.attributes
                 })
             exportArray.append({"name": frame.name,
                                 "id": int(frame.id),
@@ -103,8 +106,9 @@ def dump(db, f, **options):
                     "is_big_endian": signal.is_little_endian == 0,
                     "is_signed": signal.is_signed,
                     "is_float": signal.is_float,
+                    "values": signal.values,
                     "comment": signal.comment,
-                    "attributes": attribs,
+                    "attributes": signal.attributes,
                 }
                 if signal.multiplex is not None:
                     signalDict["multiplex"] = signal.multiplex
